@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<stdlib.h>
+# define max 3
+void push();
+int pop();
+void display();
+int i,top=-1,item,ch,s[10];
+void main(){
+    while(1){
+        printf("\n1.push\n2.pop\n3.display\n4.exit\n");
+        scanf("%d",&ch);
+        switch(ch){
+            case 1:if(top==max-1){
+                printf("stack overflow");
+                break;
+            }
+                push();
+                break;
+        case 2:if(top==-1){
+               printf("stack underflow");
+               break;
+        }       
+               item=pop();
+               break;
+        case 3:display();
+        break;
+        case 4:exit(0);    
+        }
+    }
+}
+void push(){
+    printf("enter element to be pushed");
+    scanf("%d",&item);
+    top=top+1;
+    s[top]=item;
+    return;
+}
+int pop()
+{
+    item=s[top];
+    top=top-1;
+    printf("the poped element is %d",item);
+    return 0;
+}
+void display(){
+    if(top==-1){
+        printf("stack is empty");
+        return;
+    }
+    else{
+        printf("stack continues\n");
+        for(i=top;i>=0;i--){
+            printf("%d\n",s[i]);
+        }
+    }
+    return;
+}
